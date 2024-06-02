@@ -1,11 +1,12 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {  experimental: {
-    serverActions: {
-      allowedOrigins: [
-        'http://localhost',
-        'https://stunning-broccoli-jjp6x9jvxrfpx4g-3000.app.github.dev/api',
-      ]
-    }
-  }};
+const nextConfig = {};
 
-module.exports = nextConfig;
+if (process.env.NODE_ENV == 'development') {
+    module.exports = {
+        experimental: {
+            serverActions: {
+                allowedOrigins: ['localhost:3000'],
+            },
+        },
+    }
+}
